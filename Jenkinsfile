@@ -21,4 +21,19 @@ pipeline {
           }
       }
     }
+
+    post {
+        always {
+            cleanWs()
+        }
+        success {
+            echo 'Build successful!'
+        }
+        unstable {
+            echo 'Build unstable.'
+        }
+        failure {
+            echo 'Build failed!'
+        }
+    }
 }
