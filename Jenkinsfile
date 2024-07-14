@@ -23,6 +23,9 @@ pipeline {
     }
 
     post {
+        always {
+            jacoco()
+        }
         success {
             echo 'Build successful!'
         }
