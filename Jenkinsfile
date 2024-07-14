@@ -3,8 +3,8 @@ node {
     git branch: 'master', url: 'https://github.com/Venkatesh1264/server-event-emitter.git'
   }
 
-  stage("Compilation") {
-    sh "./mvnw clean install -DskipTests"
+  stage("Compilation with new changes") {
+    sh "mvn -B -DskipTests clean package"
   }
 
   stage("Tests and Deployment") {
