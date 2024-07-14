@@ -5,16 +5,18 @@ pipeline {
       jdk 'JAVA_HOME'
     }
     stages {
-      stage ('Build') {
-        stage("Clone the project") {
+      stage("Clone the project") {
+        steps {
             git branch: 'master', url: 'https://github.com/Venkatesh1264/server-event-emitter.git'
         }
+      }
+      stage ('Build') {
         steps {
           bat 'mvn clean install'
         }
       }
       stage("Tests and Deployment") {
-          stage("Runing unit tests") {
+          steps {
             bat "mvn test -Punit"
           }
       }
