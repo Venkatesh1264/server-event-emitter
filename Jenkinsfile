@@ -4,12 +4,12 @@ node {
   }
 
   stage("Compilation with new changes") {
-    sh "mvn -B -DskipTests clean package"
+    bat 'mvn clean compile'
   }
 
   stage("Tests and Deployment") {
     stage("Runing unit tests") {
-      sh "./mvnw test -Punit"
+      bat "./mvnw test -Punit"
     }
   }
 }
