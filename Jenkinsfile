@@ -4,12 +4,12 @@ node {
   }
 
   stage("Compilation with new changes") {
-    bat 'mvn clean compile'
+    bat 'mvn clean install'
   }
 
   stage("Tests and Deployment") {
     stage("Runing unit tests") {
-      bat "./mvnw test -Punit"
+      bat "mvn test -Punit"
     }
   }
 }
